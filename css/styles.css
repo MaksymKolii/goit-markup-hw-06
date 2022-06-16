@@ -572,6 +572,9 @@ body{
     background-color: var(--accent-color);
 }
 
+.footer-social-link-wrapper{
+    margin-right: 93px;
+}
 
 /* ============================= /FOOTER ========================= */
 
