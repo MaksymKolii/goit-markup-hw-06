@@ -32,6 +32,8 @@ section background dark: #2F303A;
     --icons-main-color:#AFB1B8;
     --content-border-color:#EEEEEE;
     --bg-backdrop:rgba(0, 0, 0, 0.1);
+    --contact-form-field-border: rgba(33, 33, 33, 0.2);
+    --contact-form-field-placeholder-text-color:rgba(117, 117, 117, 0.5);
 }
 
 h1,
@@ -726,6 +728,7 @@ body{
     height: 581px;
     background-color: var(--main-white-color);
     position: absolute;
+    padding: 40px;
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);
@@ -750,7 +753,111 @@ body{
     border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 50%;
     cursor: pointer;
+}
 
+/* ============================= /BACKDROP ====================== */
+/* ============== Modal form ================ */
+
+.contact-form{
+    display: flex;
+    flex-direction: column;
+
+    
+}
+.contact-form-field{
+    margin-bottom: 10px;
+}
+
+/* Создали специально span class= contact-form-input-wrapper который будет по р-ру контента (инпута)
+в него вкладываем наш Инпут и СВГ чтоб можно было позиционироватся от инпута(который непарный) */
+.contact-form-input-wrapper{
+    position: relative;
+    display: block;
+}
+
+.contact-form-field.last{
+    margin-bottom: 20px;
+}
+
+.contact-form-input{
+    /* чтоб стали друг под другом самый простой вар,
+    1) дать ширину 100% (высоту и т.д.) 
+    т.к.инпут строчно блочный  и он не поместится с текстом в одной строке и перенесётся!! 
+    2) можно чеоез флекс на каждый лейбл и флекс директ -колумн(много писать), 
+    3) можно инпуту дать дисплай блок и он тоже перенесётся на новую строку */
+    width: 100%;
+    height: 40px;
+    padding-left: 42px;
+    border: 1px solid var(--contact-form-field-border);
+    border-radius: 4px;
+    transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.contact-form-input:focus{
+    outline: none;
+    border-color: var(--accent-color);
+}
+
+.contact-form-input:focus + .contact-form-icon{
+    fill: var(--accent-color);
+}
+
+.contact-form-field-key{
+    /*  чтоб можно было задать марджины делаем дисплей блоком, можно инлайн блоком */
+    display: block;
+    font-family: var(--primary-font-family);
+    font-weight: var(--primary-font-weight);
+    font-size: 12px;
+    line-height: 1.17;
+    letter-spacing: 0.01em;
+    margin-bottom: 4px;
+    color: var(--main-p-color);
 
 }
-/* ============================= /BACKDROP ====================== */
+
+.contact-form-topic{
+    font-family: var(--primary-font-family);
+    font-weight: var(--secondary-font-weight);
+    font-size: 20px;
+    line-height: 1.15;
+    text-align: center;
+    letter-spacing: var(--primary-letter-spacing);
+    color: var(--main-h-color);
+    margin-bottom: 12px;
+}
+
+.contact-form-icon{
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 12px;
+    transform: translateY(-50%);
+    transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.contact-form-message{
+    width: 100%;
+    height: 120px;
+    border: 1px solid var(--contact-form-field-border);
+    border-radius: 4px;
+    resize: none;
+    padding: 12px 16px;
+    transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.contact-form-message:focus{
+    outline: none;
+    border-color: var(--accent-color);
+
+}
+/* .contact-form-field::placeholder{
+    font-family:var(--primary-font-family);
+    font-weight: var(--primary-font-weight);
+    font-size: 14px;
+    line-height: 1.14;
+    letter-spacing: 0.01em;
+    color: var(--contact-form-field-placeholder-text-color);
+    color: tomato;
+    
+
+} */
+
+/* ============== /Modal form ================ */
