@@ -251,7 +251,8 @@ body{
     border: 1px solid transparent;
     transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-.button:hover {
+.button:hover,
+.button:focus {
     background-color: var(--btn-other-color);
 }
 
@@ -735,9 +736,6 @@ body{
     box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
     border-radius: 4px;
 }
-/* .backdrop.is-hidden .modal{
-    transform: skew(89deg); 
-} */
 
 .modal-close-btn{
     position: absolute;
@@ -754,15 +752,19 @@ body{
     border-radius: 50%;
     cursor: pointer;
 }
+/* HOVER под вопросом */
+.modal-close-btn:focus,
+.modal-close-btn:hover  
+{
+    fill: var(--btn-other-color);
+}
 
 /* ============================= /BACKDROP ====================== */
 /* ============== Modal form ================ */
 
 .contact-form{
     display: flex;
-    flex-direction: column;
-
-    
+    flex-direction: column; 
 }
 .contact-form-field{
     margin-bottom: 10px;
@@ -801,6 +803,7 @@ body{
     fill: var(--accent-color);
 }
 
+/* текст находящийся в label перед input*/
 .contact-form-field-key{
     /*  чтоб можно было задать марджины делаем дисплей блоком, можно инлайн блоком */
     display: block;
@@ -848,16 +851,84 @@ body{
     border-color: var(--accent-color);
 
 }
-/* .contact-form-field::placeholder{
+.contact-form-message::placeholder{
     font-family:var(--primary-font-family);
     font-weight: var(--primary-font-weight);
     font-size: 14px;
     line-height: 1.14;
     letter-spacing: 0.01em;
     color: var(--contact-form-field-placeholder-text-color);
-    color: tomato;
-    
+}
+.contact-form-checkbox-label{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    font-family: var(--primary-font-family);
+    font-weight: var(--primary-font-weight);
+    font-size: 14px;
+    line-height: 24px;
+    letter-spacing: var(--primary-letter-spacing);
+    color: var(--main-p-color);
+    margin-bottom: 30px;
+}
 
-} */
+/* Checkbox */
+.contact-form-checkbox-label::before{
+    display: block;
+    content: '';
+    width: 16px;
+    height: 15px;
+    border: 1px solid var(--contact-form-field-border);
+    border-radius: 2px;
+    cursor: pointer;
+    margin-right: 4px;
+}
+/* когда contact-form-checkbox выбран (:checked) то у beforа его соседа contact-form-checkbox-label  изменяется что либо! */
+.contact-form-checkbox:checked + .contact-form-checkbox-label::before{
+    background-color:var(--btn-other-color);
+    background-image: url("../images/modal-icons/choose-mark-icon.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 11px 8px;
+}
+
+/* т.к.нашу галочку - Before фокус не видит мы сами задаем типа фокус браузера*/
+.contact-form-checkbox:focus + .contact-form-checkbox-label::before{
+    border: 1px solid var(--main-h-color);
+}
+
+
+.contact-form-checkbox-label>a{
+    text-decoration: underline;
+    color: var(--accent-color);
+}
+
+/* Наша кнопка занимает ширину всего Флекс контейнера она STREICH и растягивается 
+по вспомогат оси ( у нас вся formа флекс column) но мы не хотим на всей форме менять стрейч
+1) можем задать кнопке штрину и марджин лефт райт авто
+2) мы дадим alighn-self: center;
+ */
+.contact-form-btn{
+    min-width: 200px;
+    font-family: inherit;
+    font-weight: var(--secondary-font-weight);
+    font-size: 16px;
+    line-height: 1.88;
+    cursor: pointer;
+    align-self: center;
+    letter-spacing: var(--secondary-letter-spacing);
+    box-shadow: var(--hero-btn-box-shadow);
+    color: var(--main-white-color);
+    background-color: var(--accent-color);
+    border-radius: 4px;
+    padding: 10px 32px;
+    border: 1px solid transparent;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.contact-form-btn:hover,
+.contact-form-btn:focus {
+    background-color: var(--btn-other-color);
+}
+
 
 /* ============== /Modal form ================ */
