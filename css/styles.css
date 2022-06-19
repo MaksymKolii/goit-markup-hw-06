@@ -608,24 +608,14 @@ body{
 }
 
 .subscription-btn{
-    /* display: block;
-    text-align: center; */
+    display: flex;
+    align-items: center;
     padding: 10px 28px 10px 29px;
 }
 .subscription-btn-icon{
     fill:var(--main-white-color);
-    margin-top: 13px;
-    margin-bottom: 13px;
+   margin-left: 10px;
 }
-/* .subscription-form-input-label-wrapper{
-    position: relative;
-}
-.subscription-form-field{
-    position: absolute;
-    top: 50%;
-    left: 16px;
-    transform: translateY(-50%);
-} */
 
 /* ============================= /FOOTER ========================= */
 
