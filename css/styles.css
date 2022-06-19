@@ -791,8 +791,9 @@ body{
     cursor: pointer;
 }
 /* HOVER под вопросом */
-.modal-close-btn:focus,
-.modal-close-btn:hover  
+
+/* .modal-close-btn:hover, */
+.modal-close-btn:focus 
 {
     fill: var(--btn-other-color);
 }
@@ -964,7 +965,7 @@ body{
     transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* .contact-form-btn:hover, */
+.contact-form-btn:hover,
 .contact-form-btn:focus {
     background-color: var(--btn-other-color);
 }
