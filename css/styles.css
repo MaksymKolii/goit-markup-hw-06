@@ -965,7 +965,9 @@ body{
     transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.contact-form-btn:hover,
+/* == Ховер кнопри тоже закомментир */
+
+/* .contact-form-btn:hover, */
 .contact-form-btn:focus {
     background-color: var(--btn-other-color);
 }
