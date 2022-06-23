@@ -182,10 +182,13 @@ body{
     border-radius: 2px; 
 }
 
-.nav-link:hover, 
+.nav-link:hover,
+.nav-link:focus{
+    color: var(--accent-color); 
+} 
+
 .header-link-phone:hover, 
 .header-link-mail:hover,
-.nav-link:focus,
 .header-link-phone:focus,
 .header-link-mail:focus
 {
